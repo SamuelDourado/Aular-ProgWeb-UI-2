@@ -1,1 +1,11 @@
-<h1>FORMULARIo</h1>
+<form [formGroup]="form">
+    <div class="panel">
+        <div class="panel-body">
+            <div class="col-lg.12">
+                <input type="text" class="form-control" formControlName="name" />
+            </div>
+        </div>
+        <button (click)="salvar(form.value)"> Salvar</button>
+        <button [routerLink]="['/category']"> Voltar </button>
+    </div>
+</form>

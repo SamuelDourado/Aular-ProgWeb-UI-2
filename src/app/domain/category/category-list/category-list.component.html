@@ -1,3 +1,4 @@
+<button [routerLink]="['/category/form']"> Adicionar Nova Categoria </button>
 <table class="table">
     <thead>
       <tr>
@@ -8,12 +9,11 @@
       </tr>
     </thead>
     <tbody>
-
       <tr *ngFor="let category of categories; let i = index">
         <th scope="row">{{category.id}}</th>
-        <td>{{category.nome}}</td>
+        <td>{{category.name}}</td>
         <td>
-          Alterar 
+          <button [routerLink]="['/category/form', category.id ]"> Alterar </button>
           <button (click)="delete(category.id,i)"> Excluir</button>
         </td>
       </tr>

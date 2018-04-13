@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 // Component
 import {CategoryListComponent} from './category-list/category-list.component'
@@ -25,6 +26,9 @@ import {CategoryService} from './category.service';
       HttpModule,
       RouterModule,
       CommonModule,
+      // para utilizar formularios
+      FormsModule,
+      ReactiveFormsModule,
 
       // Routing
       CategoryRouting
