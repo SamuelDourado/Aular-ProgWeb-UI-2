@@ -34,7 +34,10 @@ import {ProdutoService} from '../produto.service';
       else{
         this.form = this.formBuilder.group({
           id: [],
-          name: ['', Validators.required]
+          name: ['', Validators.required],
+          marca: [],
+          descricao: [],
+          preco: [],
         },{});
       }
 
