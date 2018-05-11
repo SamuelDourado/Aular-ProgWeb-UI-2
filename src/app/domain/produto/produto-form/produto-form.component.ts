@@ -6,6 +6,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Produto} from '../produto';
 import {ProdutoService} from '../produto.service';
 
+import {Category} from './../../category/category';
+import { CategoryService } from './../../category/category.service';
+
 @Component({
     selector: 'produto-form',
     templateUrl: './produto-form.component.html',
@@ -15,14 +18,26 @@ import {ProdutoService} from '../produto.service';
   export class ProdutoFormComponent implements OnInit {
     form: FormGroup;
     produto: Produto;
+    public categories: Category[];
 
-    constructor(private produtoService: ProdutoService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute){
+    constructor(
+      private produtoService: ProdutoService,
+       private formBuilder: FormBuilder, 
+       private router: Router, 
+       private route: ActivatedRoute,
+       private categoryService: CategoryService
+      ){
       
     }
 
     ngOnInit() {
       this.produto = new Produto();
       this.produto.id = this.route.snapshot.params['id'];
+
+      this.categoryService.findAll()
+      .subscribe(categories => {
+        this.categories = categories
+      });
 
       if(this.produto.id != null){
         this.produtoService.findOne(this.produto.id)
@@ -38,6 +53,7 @@ import {ProdutoService} from '../produto.service';
           marca: [],
           descricao: [],
           preco: [],
+          category: [],
         },{});
       }
 

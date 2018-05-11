@@ -13,8 +13,18 @@
                     
                     <label>preco</label>
                     <input type="text" class="form-control" formControlName="preco" />
+                    
+                    <label>Categoria:</label>
+                    <select class="form-control" formControlName="category">
+                      <option [ngValue]="null">Selecione</option>
+                      <option *ngFor="let category of categories;" [ngValue]="category.id">
+                        {{ category.name }}
+                      </option>
+                    </select>
+                    
                 </div>
             </div>
+            <hr>
             <button (click)="salvar(form.value)"> Salvar</button>
             <button [routerLink]="['/produto']"> Voltar </button>
         </div>
