@@ -6,5 +6,6 @@ export class Produto{
     preco: number;
     marca: String;
     descricao: String;
+    img: String;
     //categoria: Categoria;
 }

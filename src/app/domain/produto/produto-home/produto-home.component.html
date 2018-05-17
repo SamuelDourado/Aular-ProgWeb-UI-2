@@ -1,0 +1,15 @@
+<div>
+<button [routerLink]="['/produto/form']"> Visualizar Carrinho </button>
+<div id='produtos' *ngFor="let produto of produtos; let i = index">
+    <div class="gallery">
+        <a target="_blank" href="img_fjords.jpg">
+            <img src="{{produto.img}}" alt="{{produto.name}}" width="300" height="200">
+        </a>
+        <div class="desc">
+            <h4> {{produto.name}} - {{produto.marca}} </h4>
+            <p>{{produto.descricao}}</p>
+            <p><b>Preço: {{produto.preco}}</b></p>
+        </div>
+    </div>
+</div>
+</div>
