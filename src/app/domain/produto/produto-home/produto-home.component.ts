@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {ProdutoService} from '../produto.service';
 import {Produto} from '../produto';
+import {CarrinhoService} from '../../carrinho/carrinho.service';
 
 @Component({
     selector: 'produto-home',
@@ -13,7 +14,8 @@ import {Produto} from '../produto';
     produtos: Produto[];
 
     constructor(
-      private produtoService: ProdutoService
+      private produtoService: ProdutoService,
+      private carrinhoService: CarrinhoService
     ){}
 
     ngOnInit() {
@@ -21,6 +23,10 @@ import {Produto} from '../produto';
         .subscribe(produtos => {
           this.produtos = produtos
         });
+    }
+
+    adicionarProduto(produto: Produto){
+      this.carrinhoService.adicionarProduto(produto);
     }
 
   }

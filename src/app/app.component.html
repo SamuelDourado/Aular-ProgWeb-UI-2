@@ -5,7 +5,7 @@
                 <img id="logo" src="assets/logo.png" alt="Logomarca muito louca.">
             </div>
             <div class="col-6">
-                <p class="destaque">THE WORLD'S LARGEST WEB DEVELOPER SITE</p>    
+                <p class="destaque">A melhor farmácia de Anápolis</p>    
             </div>
         </div>
     </div>
@@ -13,38 +13,29 @@
     <!-- MENU -->
     <div class="container bg-verde-musgo">
         <div class="row">
-            <div class="col-8">
-                <ul>
-                    <li><a [routerLink]="['category']">TABELA com git</a></li>
-                    <li><a href="http:www.google.com">Link 1</a></li>
-                    <li><a href="http:www.google.com">Link 1</a></li>
+            <div class="col-16">
+                <ul class="nav">
+                    <li class="nav-item"><a [routerLink]="['produto/home']">Home</a></li>
+                    <li class="nav-item"><a [routerLink]="['category']">Categoria</a></li>
+                    <li class="nav-item"><a [routerLink]="['produto']">Produto</a></li>
                 </ul>
             </div>
             <div class="col-4">
-                <ul>
-                    <li><a href="http:www.google.com">Link 1</a></li>
-                </ul>
+                    <app-carrinho></app-carrinho>
             </div>
         </div>
     </div>
 
     <!-- CONTEUDO -->
     <div class="container">
+        
         <div>
-            <ul>
-                <li><a href="http:www.google.com">Link 1</a></li>
-                <li><a href="http:www.google.com">Link 1</a></li>
-                <li><a href="http:www.google.com">Link 1</a></li>
-            </ul> 
-        </div>
-        <div>
-            
             <router-outlet></router-outlet>
-
         </div>
     </div>
 
     <!-- RODAPE -->
-    <div>
+    <br><br>
+    <div class="container rodape">
         <p><i>2018 - Todos direitos reservados</i></p>
     </div>
