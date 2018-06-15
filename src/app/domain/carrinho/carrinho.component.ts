@@ -15,14 +15,23 @@ export class CarrinhoComponent implements OnInit {
 
   private subscription : Subscription;
   produtos : Produto[];
-  ativado : boolean = true
+  ativado : boolean = true;
+  isProductsLoad : boolean = false;
 
-  constructor(private carrinhoService: CarrinhoService) { }
+  constructor(private carrinhoService: CarrinhoService) {
+    
+   }
 
   ngOnInit() {
+    this.recuperarCarrinho();
+    
+  }
 
+  recuperarCarrinho(){
     this.carrinhoService.carrinho.subscribe( (carrinho: Carrinho) => {
+      console.log(carrinho.produtos);
       this.produtos = carrinho.produtos;
+      this.isProductsLoad = true;
     } );
   }
 

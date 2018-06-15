@@ -33,20 +33,20 @@ import { CategoryService } from './../../category/category.service';
     ngOnInit() {
       this.produto = new Produto();
       this.produto.id = this.route.snapshot.params['id'];
-
+      console.log(this.produto.id);
       this.categoryService.findAll()
       .subscribe(categories => {
         this.categories = categories
       });
 
-      if(this.produto.id != null){
+      if(this.produto.id){
         this.produtoService.findOne(this.produto.id)
           .subscribe(produto => {
               this.form.patchValue(produto);
             }
           );
       }
-      else{
+      
         this.form = this.formBuilder.group({
           id: [],
           name: ['', Validators.required],
@@ -55,7 +55,7 @@ import { CategoryService } from './../../category/category.service';
           preco: [],
           category: [],
         },{});
-      }
+      
 
       
     }

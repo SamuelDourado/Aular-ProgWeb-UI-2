@@ -17,18 +17,25 @@ export class CarrinhoService {
     produtos: Produto[] = [];
     carrinho = this.carrinhoSubject.asObservable();
     
+
     
-    constructor(public http : Http){}
+    constructor(public http : Http){
+        this.produtos = JSON.parse(localStorage.getItem("carrinho"));
+        console.log(this.produtos);
+    }
 
     adicionarProduto(produto: Produto){
         this.produtos.push(produto);
         this.carrinhoSubject.next(<Carrinho>{ativo: true , produtos:  this.produtos});
+        localStorage.setItem("carrinho", JSON.stringify( this.produtos));
     }
 
     removerProduto(id: number){
        this.produtos =  this.produtos.filter(  produto => produto.id !== id);
        this.carrinhoSubject.next(<Carrinho>{ativo: true , produtos:  this.produtos});
     }
+
+   
 
 
 }

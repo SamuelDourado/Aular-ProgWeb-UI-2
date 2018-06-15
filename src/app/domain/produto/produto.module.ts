@@ -8,7 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ProdutoListComponent} from './produto-list/produto-list.component';
 import {ProdutoFormComponent} from './produto-form/produto-form.component';
 import {ProdutoHomeComponent} from './produto-home/produto-home.component';
-
+import {ProdutoInCarComponent} from './produto-in-car/produto-in-car.component';
 //Routing
 import {ProdutoRouting} from './produto-routing.module';
 
@@ -22,7 +22,8 @@ import { CategoryService } from './../category/category.service';
         //Componentes
         ProdutoListComponent,
         ProdutoFormComponent,
-        ProdutoHomeComponent
+        ProdutoHomeComponent,
+        ProdutoInCarComponent
     ],
     imports: [
       // angular
